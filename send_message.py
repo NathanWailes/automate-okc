@@ -28,7 +28,7 @@ browser.get('https://www.okcupid.com')
 for cookie in phantomjs_cookies:
     browser.add_cookie(cookie)
 
-
+browser.maximize_window()
 browser.get('https://www.okcupid.com/profile/okcupid1865')
 elements = browser.find_elements_by_partial_link_text('Message')
 
