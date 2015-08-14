@@ -5,6 +5,8 @@ import time
 import re
 from selenium import webdriver
 
+pause = 2
+
 def main():
     cfg = get_cfg()
 
@@ -15,6 +17,10 @@ def main():
 
     for age in range(19, 30):
         update_age(browser, age)
+        time.sleep(pause)
+
+        scroll_to_bottom_of_page(browser)
+        scroll_to_top_of_page(browser)
 
     print("Done!")
 
@@ -46,12 +52,11 @@ def load_browser(cfg):
         browser.add_cookie(cookie)
     return browser
 
-
 def update_age(browser, age):
     age_selection_link = browser.find_element_by_xpath('//*[@id="match-status"]/span[5]/a')
     age_selection_link.click()
 
-    time.sleep(3)
+    time.sleep(pause)
     min_age_input_box = browser.find_element_by_css_selector('#match-status > span.filter-wrapper.filter-age > div > div.contents > input[type="text"]:nth-child(2)')
     min_age_input_box.clear()
     min_age_input_box.send_keys(str(age))
@@ -61,7 +66,19 @@ def update_age(browser, age):
     max_age_input_box.send_keys(str(age))
 
     age_selection_link.click()
-    time.sleep(2)
+
+def scroll_to_bottom_of_page(browser):
+    last_height = browser.execute_script("return document.body.scrollHeight")
+    while True:
+        browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(pause)
+        new_height = browser.execute_script("return document.body.scrollHeight")
+        if new_height == last_height:
+            break
+        last_height = new_height
+
+def scroll_to_top_of_page(browser):
+    browser.execute_script("window.scrollTo(0, 0)") # scroll to top of page
 
 
 
