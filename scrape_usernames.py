@@ -10,7 +10,7 @@ def main():
     browser.get('https://www.okcupid.com/match')
 
     usernames = set()
-    for age in range(19, 30):
+    for age in range(18, 30):
         update_age(browser, age)
         time.sleep(pause)
 
