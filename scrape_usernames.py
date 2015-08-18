@@ -6,7 +6,7 @@ pause = 2
 def main():
     cfg = get_config()
     browser = load_browser(cfg)
-    browser.maximize_window()
+    #browser.maximize_window()
     browser.get('https://www.okcupid.com/match')
 
     usernames = set()

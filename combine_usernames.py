@@ -9,7 +9,7 @@ print(len(usernames))
 usernames = set(usernames)
 print(len(usernames))
 
-
+'''
 with open('usernames2.txt', 'r') as csvfile:
     usernames2 = csvfile.readlines()
     usernames2 = [name.strip() for name in usernames]
@@ -17,10 +17,10 @@ with open('usernames2.txt', 'r') as csvfile:
 
 usernames = usernames | usernames2
 print(len(usernames))
-
+'''
 people = {}
 for username in usernames:
     people[username] = {}
 
-with open('people.json', 'w') as outfile:
+with open('users_data.json', 'w') as outfile:
     json.dump(people, outfile)

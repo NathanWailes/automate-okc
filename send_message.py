@@ -4,7 +4,7 @@ from utils import get_config, load_browser
 def main():
     cfg = get_config()
     browser = load_browser(cfg)
-    browser.maximize_window()
+    #browser.maximize_window()
 
     browser.get('https://www.okcupid.com/profile/okcupid1865')
     elements = browser.find_elements_by_partial_link_text('Message')
