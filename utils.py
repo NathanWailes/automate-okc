@@ -1,7 +1,9 @@
 import argparse
+import os
 import simplejson
 import sys
 import re
+import requests
 from selenium import webdriver
 
 def get_config():
@@ -31,3 +33,12 @@ def load_browser(cfg):
     for cookie in phantomjs_cookies:
         browser.add_cookie(cookie)
     return browser
+
+def download_image(image_url, save_path):
+    f = open(save_path,'wb')
+    f.write(requests.get(image_url).content)
+    f.close()
+
+def create_dir(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
