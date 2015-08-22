@@ -2,10 +2,13 @@
 
 To Do:
 
+present_profiles
+ - have some fast way of deciding if you want to contact a profile, so you don't have to keep using QuickMatch.
+
+
 scrape_usernames:
 
 scrape_profiles:
- - Scrape the profile pictures and have some fast way of deciding if you want to contact them, so you don't have to keep using QuickMatch.
  - Have some way of automatically re-scraping the site every night to get any new profiles that may have come online.
  - Make the program less likely to lose all the data when you quit it from the command line.
  - Handle cases where you run across a profile that 'doesn't exist' (was made hidden)
@@ -19,6 +22,7 @@ scrape_messages:
 
 
 Done:
+ - Scrape the profile pictures
  - have the scraper capable of working bit-by-bit (saving data as it goes) instead of needing to do everyone at once before it saves anything
  - See if there's some kind of API that could help you get information.
 
