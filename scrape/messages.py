@@ -1,6 +1,6 @@
 import json
 import time
-from utils import get_config, load_browser, download_image, create_dir, \
+from automate-okc.utils import get_config, load_browser, download_image, create_dir, \
                   scroll_to_bottom_of_page
 
 pause = 2

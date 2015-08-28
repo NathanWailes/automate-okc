@@ -25,6 +25,7 @@ send_message
 
 
 Done:
+2015.08.28 - allow for a headless driver / screenless browser (which makes it easier to parallelize the scraping)
 2015.08.21 - have some fast way of deciding if you want to contact a profile, so you don't have to keep using QuickMatch.
  - Scrape the profile pictures
  - have the scraper capable of working bit-by-bit (saving data as it goes) instead of needing to do everyone at once before it saves anything

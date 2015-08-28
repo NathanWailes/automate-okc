@@ -12,12 +12,6 @@ pause = 2
 
 def get_config():
     p = argparse.ArgumentParser()
-    p.add_argument('--avoid-tag', default=[], action='append')
-    p.add_argument('--require-tag', default=[], action='append')
-    p.add_argument('--avoid-restaurant', default=[], action='append')
-    p.add_argument('--place-order', action='store_true')
-    p.add_argument('--preserve-browser', action='store_true')
-    p.add_argument('--menu-number', default=1)
     p.add_argument('--cookies-path', default='okc_cookies')
     cfg = p.parse_args(sys.argv[1:])
     return cfg
