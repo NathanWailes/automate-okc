@@ -1,5 +1,6 @@
 import time
-from utils import get_config, load_browser
+from utils import get_config, load_browser, scroll_to_bottom_of_page, \
+                  scroll_to_top_of_page
 
 pause = 2
 
@@ -17,6 +18,7 @@ def main():
         scroll_to_bottom_of_page(browser)
 
         new_usernames = get_all_usernames(browser)
+        import pdb; pdb.set_trace()
         usernames = usernames | new_usernames
 
         scroll_to_top_of_page(browser)
@@ -38,27 +40,12 @@ def update_age(browser, age):
 
     age_selection_link.click()
 
-def scroll_to_bottom_of_page(browser):
-    last_height = browser.execute_script("return document.body.scrollHeight")
-    while True:
-        browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(pause)
-        new_height = browser.execute_script("return document.body.scrollHeight")
-        if new_height == last_height:
-            break
-        last_height = new_height
-
 def get_all_usernames(browser):
     usernames = set()
     username_elements = browser.find_elements_by_class_name("name")
     for username_element in username_elements:
         username = username_element.text
-        print(username)
-
     return usernames
-
-def scroll_to_top_of_page(browser):
-    browser.execute_script("window.scrollTo(0, 0)") # scroll to top of page
 
 if __name__ == '__main__':
     main()

@@ -4,6 +4,7 @@
 '''
 from easygui import buttonbox
 import json
+import os.path
 
 def main():
     with open('users_data.json', 'r') as f:
@@ -15,6 +16,8 @@ def main():
         image_number = 0
         while True:
             image = "profiles/" + username + "/" + str(image_number) + ".webp"
+            if not os.path.isfile(image):
+                break
             msg   = "Should this person be sent messages?"
             choices = ["Previous image","Next image","Yes","No"]
             reply=buttonbox(msg,image=image,choices=choices)
